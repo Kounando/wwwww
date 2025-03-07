@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファイナンスサイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* 薄い青の背景色 */
+        }
+
+        header {
+            background-color: #006064; /* 濃い青緑色 */
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b; /* 黄色 */
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #home {
+            background-color: #b2ebf2; /* 薄い青緑色 */
+        }
+
+        #about {
+            background-color: #e1f5fe; /* 薄い青色 */
+        }
+
+        #services {
+            background-color: #b3e5fc; /* 薄い青色 */
+        }
+
+        #survey {
+            background-color: #b2dfdb; /* 薄い緑色 */
+        }
+
+        #contact {
+            background-color: #c8e6c9; /* 薄い緑色 */
+        }
+
+        section h2 {
+            color: #006064; /* 濃い青緑色 */
+            border-bottom: 2px solid #006064;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .survey-box {
+            border: 2px solid #006064; /* 濃い青緑色の枠線 */
+            background-color: #b2ebf2; /* 薄い青緑色の背景色 */
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .survey-box:hover {
+            transform: scale(1.05);
+        }
+
+        .survey-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            color: white;
+            background-color: #006064; /* 濃い青緑色 */
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 1rem;
+        }
+
+        .survey-link:hover {
+            background-color: #004d40; /* さらに濃い青緑色 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #006064; /* 濃い青緑色 */
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff; /* 白色の背景色 */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #006064; /* 濃い青緑色 */
+        }
+
+        .question select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #006064; /* 濃い青緑色 */
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            color: white;
+            background-color: #006064; /* 濃い青緑色 */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #004d40; /* さらに濃い青緑色 */
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .thank-you {
+            display: none;
+            text-align: center;
+        }
+
+        .thank-you h2 {
+            color: #006064; /* 濃い青緑色 */
+        }
+
+        .line-friend {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .line-friend a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            background-color: #00c300; /* LINE緑 */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .line-friend a:hover {
+            background-color: #009900; /* さらに濃い緑色 */
+        }
+
+        p, ul {
+            margin: 0 0 1rem 0;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ファイナンスサイト</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">私たちについて</a></li>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>私たちのファイナンスサイトへようこそ</h2>
+            <p>あなたの信頼できる金融サービスのパートナーです。</p>
+        </section>
+        <section id="about">
+            <h2>私たちについて</h2>
+            <p>私たちは、あなたの金融目標を達成するために、専門的な金融アドバイスとサービスを提供します。</p>
+        </section>
+        <section id="services">
+            <h2>私たちのサービス</h2>
+            <ul>
+                <li>
+                    <h3>投資計画</h3>
+                    <p>あなたの財務目標に応じた投資戦略を提供します。ポートフォリオの多様化、リスク管理、市場分析を通じて、最適な投資計画を立てます。</p>
+                </li>
+                <li>
+                    <h3>退職計画</h3>
+                    <p>あなたの退職後の生活を安心して過ごせるように、退職計画をサポートします。年金計画、資産運用、税制優遇を活用した退職計画を作成します。</p>
+                </li>
+                <li>
+                    <h3>税務アドバイス</h3>
+                    <p>複雑な税務問題を解決し、税金を最適化するためのアドバイスを提供します。税務申告、節税対策、税務リスク管理をサポートします。</p>
+                </li>
+                <li>
+                    <h3>保険サービス</h3>
+                    <p>あなたとご家族の将来を守るために、最適な保険プランを提供します。生命保険、医療保険、資産保全のための保険オプションを提案します。</p>
+                </li>
+            </ul>
+        </section>
+        <section id="survey">
+            <h2>あなたについて知りたいのでアンケートお願いします</h2>
+            <div class="survey-box">
+                <p>以下のリンクをクリックしてアンケートにご協力ください。</p>
+                <button type="button" onclick="showPage('introPage')">アンケートはこちら</button>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>お問い合わせ</h2>
+            <p>メール: info@financewebsite.com</p>
+            <p>電話: +123-456-7890</p>
+        </section>
+        <div id="introPage" class="container" style="display: none;">
+            <div class="intro">
+                <h2>投資アンケート診断へようこそ</h2>
+                <p>このアンケートは、あなたの投資に関する考えや状況を理解するためのものです。アンケートに答えることで、最適な投資プランを提案いたします。</p>
+                <button type="button" onclick="showPage('page1')">アンケートを始める</button>
+            </div>
+        </div>
+        <div class="container">
+            <form id="surveyForm" action="javascript:void(0);" method="post" onsubmit="showThankYouMessage()" style="display: none;">
+                <!-- ページ 1 -->
+                <div id="page1">
+                    <p>これは収入に関するアンケートです。回答に困った場合には「その他」に入れてください。</p>
+                    <h2>金融アンケート調査 - ページ 1</h2>
+                    <div class="question">
+                        <label for="q1">1. 仕事をしていますか？:</label>
+                        <select id="q1" name="q1" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="はい">はい</option>
+                            <option value="いいえ">いいえ</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question">
+                        <label for="q2">2. どのような立場ですか？:</label>
+                        <select id="q2" name="q2" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="会社の正社員">会社の正社員</option>
+                            <option value="派遣社員">派遣社員</option>
+                            <option value="アルバイト">アルバイト</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question">
+                        <label for="q3">3. 仕事等の収入（年収）はいくらほどですか？:</label>
+                        <select id="q3" name="q3" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="0から100万円">0から100万円</option>
+                            <option value="100～500万円">100～500万円</option>
+                            <option value="500～1000万円">500～1000万円</option>
+                            <option value="1000万以上">1000万以上</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question">
+                        <label for="q4">4. 今の収入に満足していますか？:</label>
+                        <select id="q4" name="q4" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="はい">はい</option>
+                            <option value="いいえ">いいえ</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" onclick="showPage('page2')">次へ</button>
+                    </div>
+                </div>
+                
+                <!-- ページ 2 -->
+                <div id="page2" style="display: none;">
+                    <h2>金融アンケート調査 - ページ 2</h2>
+                    <div class="question">
+                        <label for="q5">5. 収入を副業等を行ってより増やしたいと考えていますか？:</label>
+                        <select id="q5" name="q5" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="はい">はい</option>
+                            <option value="いいえ">いいえ</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question">
+                        <label for="q6">6. 収入を増やすために副業等をしていますか？:</label>
+                        <select id="q6" name="q6" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="はい">はい</option>
+                            <option value="いいえ">いいえ</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question">
+                        <label for="q7">7. 投資には興味ありますか？:</label>
+                        <select id="q7" name="q7" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="はい">はい</option>
+                            <option value="いいえ">いいえ</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question">
+                        <label for="q8">8. 投資で稼ぐ自信はありますか？:</label>
+                        <select id="q8" name="q8" required>
+                            <option value="">返答を以下の選択肢から1つ選んでください</option>
+                            <option value="はい">はい</option>
+                            <option value="いいえ">いいえ</option>
+                            <option value="答えられない">答えられない</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" onclick="showPage('page1')">戻る</button>
+                        <button type="submit">送信</button>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- ありがとうメッセージ -->
+            <div id="thankYouMessage" class="thank-you">
+                <h2>アンケートありがとうございました</h2>
+                <p>あなたのおすすめの投資プランはこちら：</p>
+                <div class="line-friend">
+                    <a href="https://line.me/R/ti/p/%40linefriends" target="_blank">LINEで友だち追加</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 ファイナンスサイト. 全著作権所有.</p>
+    </footer>
+    <script>
+        function showPage(pageId) {
+            document.getElementById('introPage').style.display = 'none';
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('surveyForm').style.display = 'none';
+
+            if (pageId === 'page1' || pageId === 'page2') {
+                document.getElementById('surveyForm').style.display = 'block';
+            }
+
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        function showThankYouMessage() {
+            document.getElementById('surveyForm').
